@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Coming soon</title>
+  <style>
+    :root{
+      --bg1:#06070a;
+      --bg2:#0b1220;
+      --fg:#ffffff;
+      --muted:#bfc6cc;
+    }
+    html,body{height:100%;}
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:var(--fg);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow:hidden;
+    }
+    .stage{
+      text-align:center;
+      width:100%;
+      padding:2rem;
+      position:relative;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+    }
+    h1.coming{
+      margin:0;
+      color:var(--fg);
+      font-weight:700;
+      line-height:0.9;
+      letter-spacing:-0.02em;
+      font-size:clamp(48px, 14vw, 160px);
+      text-shadow:0 10px 30px rgba(2,6,12,0.6), 0 2px 6px rgba(0,0,0,0.6);
+      transform-origin:center center;
+      opacity:0;
+      animation:fadeUp 1100ms cubic-bezier(.22,.9,.3,1) 200ms both;
+      will-change:transform,opacity;
+    }
+    footer{
+      position:absolute;
+      left:0;right:0;
+      bottom:22px;
+      text-align:center;
+      pointer-events:auto;
+    }
+    footer a{
+      color:var(--muted);
+      font-size:14px;
+      text-decoration:none;
+      opacity:0.9;
+      transition:opacity .18s ease, transform .18s ease;
+    }
+    footer a:hover{opacity:1; transform:translateY(-2px)}
+
+    @keyframes fadeUp{
+      from{opacity:0; transform:translateY(36px) scale(0.99)}
+      to{opacity:1; transform:translateY(0) scale(1)}
+    }
+
+    /* Respect user preference for reduced motion */
+    @media (prefers-reduced-motion:reduce){
+      h1.coming{animation:none; opacity:1;}
+      footer a{transition:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <h1 class="coming">Coming soon</h1>
+    <footer><a href="https://flowconsultancy.co" target="_blank" rel="noopener noreferrer">Powered by Flow Consultancy</a></footer>
+  </div>
+</body>
+</html>
